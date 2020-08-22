@@ -65,7 +65,7 @@ abstract class ViewState<Page extends View, Con extends Controller>
     super.didChangeDependencies();
   }
 
-  Widget buildPage();
+  Widget buildPage(BuildContext context);
 
   @override
   @nonVirtual
@@ -74,7 +74,7 @@ abstract class ViewState<Page extends View, Con extends Controller>
         value: _controller,
         child: Consumer<Con>(builder: (ctx, con, _) {
           _controller = con;
-          return buildPage();
+          return buildPage(context);
         }));
   }
 
